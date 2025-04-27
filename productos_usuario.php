@@ -46,6 +46,7 @@
             echo '    <div class="info-item"><span class="info-label">Descripción:</span> ' . htmlspecialchars($row['descripcion']) . '</div>';
             echo '    <div class="info-item"><span class="info-label">Stock:</span> ' . htmlspecialchars($row['stock']) . '</div>';
             echo '    <div class="info-item"><span class="info-label">Género:</span> ' . htmlspecialchars($row['genero']) . '</div>';
+            echo '    <button class="btn-agregar">Agregar al carrito</button>';
             echo '  </div>';
             echo '</div>';
         }
@@ -57,6 +58,13 @@
     ?>
 </div>
 
-<a href="home.html">Volver a la página de inicio</a>
+<div class="contenedor-btn-volver">
+    <a href="home.html" class="btn-volver">
+        <span class="icono-flecha">←</span>
+        Volver a la página de inicio
+    </a>
+</div>
+
+
 </body>
 </html>
