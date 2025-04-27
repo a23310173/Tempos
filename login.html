@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso al Sistema</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+<div class="container">
+    <!-- Header con logo y título -->
+    <header>
+        <div class="header-container">
+            <img src="media/tempologo.png" alt="Logo" class="logo">
+            <h1 class="header-title">INGRESO AL SISTEMA</h1>
+        </div>
+    </header>
+
+    <!-- Contenedor blanco con la imagen encima -->
+    <div class="image-container">
+        <img src="media/relojverde.jpg" alt="Ingreso" class="register-image">
+        <video class="video-tempohome" autoplay loop muted>
+            <source src="media/tempohome.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+
+        <!-- Formulario de ingreso dentro del video -->
+        <div class='video-title'>INGRESO</div>
+        <div class="form-container">
+            <form action="login.php" method="POST"> <!-- Envía los datos a login.php -->
+                <!-- Email -->
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <!-- Contraseña -->
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+
+                <!-- Botón de enviar -->
+                <button type="submit" class="login-button">Ingresar</button>
+                <img src="media/googlelog.png" alt="Google" class="button-image google">
+                <img src="media/applelog.png" alt="Apple" class="button-image apple">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

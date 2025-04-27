@@ -1,0 +1,307 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #FFFFFF;
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la ventana */
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1920px; /* Ancho máximo */
+    width: 100%; /* Ocupa el 100% del ancho disponible */
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 0 auto; /* Centra el contenedor en pantallas más grandes */
+}
+
+/* Barra de tareas */
+.navbar {
+    position: absolute;
+    top: 50px; /* Margen superior ajustado a 50px */
+    right: 20px; /* Margen derecho */
+    z-index: 10; /* Asegura que esté por encima del video */
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre elementos */
+}
+
+.navbar ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Espacio entre elementos */
+}
+
+.navbar ul li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #ffffff; /* Color del texto blanco */
+    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
+    font-size: 18px; /* Tamaño de la fuente */
+    font-weight: 400; /* Grosor de la fuente */
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Contenedor para Login y Registro */
+.navbar .auth-buttons {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.navbar .auth-buttons a {
+    text-decoration: none;
+    color: #ffffff; /* Color del texto blanco */
+    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
+    font-size: 18px; /* Tamaño de la fuente */
+    font-weight: 400; /* Grosor de la fuente */
+    background-color: #1B1D1C; /* Color de fondo */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados (similar al logo) */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.navbar .auth-buttons a:hover {
+    background-color: #2C2F2E; /* Cambio de color al pasar el mouse */
+}
+
+/* Estilos para el header (video) */
+header {
+    position: relative;
+    width: 100%;
+    height: 347px;
+}
+
+/* Estilos para el video */
+header video {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    position: relative;
+    z-index: 1; /* Asegura que el video esté detrás de la barra de navegación */
+}
+
+/* Estilos para el logo */
+header .logo {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    width: 87px;
+    height: 87px;
+    border-radius: 12px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    z-index: 2; /* Asegura que el logo esté sobre el video */
+}
+
+/* Estilos para el texto */
+header .header-text {
+    position: absolute;
+    top: 160px; /* 160px desde la parte superior */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino para centrar */
+    text-align: center; /* Centrar el texto */
+    color: #ffffff;
+    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
+    width: 260px; /* Ancho del contenedor (mismo que el tamaño de "TEMPO") */
+    z-index: 2; /* Asegura que el texto esté sobre el video */
+}
+
+header .header-text h1 {
+    font-size: 73px; /* Tamaño de "TEMPO" */
+    margin: 0; /* Elimina el margen predeterminado */
+    line-height: 1; /* Ajusta el interlineado */
+    font-weight: 550;
+}
+
+header .header-text p {
+    font-size: 32px; /* Tamaño de "since 2025" */
+    margin: 0; /* Elimina el margen predeterminado */
+    line-height: 1; /* Ajusta el interlineado */
+    margin-top: 10px; /* Espacio entre "TEMPO" y "since 2025" */
+    margin-left: 10px; /* Mueve "since 2025" un poco a la derecha */
+    text-decoration: underline;
+    text-decoration-color: darkgrey;
+}
+
+/* Estilos para el contenedor de Misión y Visión */
+.mission-vision {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: 300px; /* Altura del contenedor */
+    background: linear-gradient(to top, #02542D, #174833); /* Degradado oscuro arriba, desvaneciendo hacia abajo */
+    display: flex;
+    align-items: center;
+    position: relative; /* Para posicionar el título "Nosotros" */
+}
+
+/* Estilos para el título "Nosotros" */
+.mission-vision .nosotros-title {
+    position: absolute;
+    left: 50px; /* Posición desde la izquierda */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para centrar */
+    color: #ffffff; /* Color del texto */
+    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
+    font-size: 42px; /* Tamaño del título */
+    font-weight: 700; /* Negrita */
+    font-style: italic; /* Cursiva */
+}
+
+/* Estilos para los cuadrados de Misión y Visión */
+.mission-vision .card {
+    width: 350px; /* Ancho más angosto */
+    height: 220px; /* Altura reducida */
+    background-color: rgba(169, 169, 169, 0.6); /* Fondo darkgrey al 60% de opacidad */
+    border-radius: 12px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno reducido */
+    box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
+    color: #ffffff; /* Color del texto */
+    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
+    text-align: center; /* Centrar el texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el contenido en la parte superior */
+    align-items: center;
+    margin-left: auto; /* Mueve los cuadrados hacia la derecha */
+    margin-right: 10px; /* Margen derecho reducido */
+    overflow: hidden; /* Evita que el texto se desborde */
+}
+
+.mission-vision .card h2 {
+    margin: 0 0 10px 0; /* Margen inferior para el título */
+    font-size: 20px; /* Tamaño del título */
+    font-weight: 500; /* Grosor de la fuente */
+    white-space: nowrap; /* Evita que el título se divida en varias líneas */
+}
+
+.mission-vision .card p {
+    margin: 0; /* Elimina el margen predeterminado */
+    font-size: 14px; /* Tamaño del texto */
+    line-height: 1.4; /* Interlineado ajustado */
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Limita el texto a 5 líneas */
+    -webkit-box-orient: vertical;
+}
+
+/* Ajuste del espacio entre cuadros */
+.mission-vision .card:not(:last-child) {
+    margin-right: -300px; /* Espacio de 20px entre los cuadros */
+}
+
+.mission-vision .card:not(:first-child) {
+    margin-left: 600px; /* Espacio de 20px entre los cuadros */
+}
+
+/* Estilos para la sección de Ubicación */
+.ubicacion {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: 350px; /* Altura del contenedor */
+    background: linear-gradient(to bottom, #1E7B4F, #02542D); /* Degradado2 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; /* Color del texto */
+    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
+    text-align: center; /* Centrar el texto */
+    padding: 20px; /* Espaciado interno */
+    box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
+    position: relative; /* Para posicionar el título "Ubicación" */
+}
+
+/* Estilos para la sección de Ubicación */
+.ubicacion {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: 350px; /* Altura del contenedor */
+    background: linear-gradient(to bottom, #1E7B4F, #02542D); /* Degradado2 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; /* Color del texto */
+    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
+    text-align: center; /* Centrar el texto */
+    padding: 20px; /* Espaciado interno */
+    box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
+    position: relative; /* Para posicionar el título "Ubicación" */
+}
+
+/* Estilos para el título "Ubicación" */
+.ubicacion h2 {
+    position: absolute;
+    left: 50px; /* Posición desde la izquierda (igual que "Nosotros") */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para centrar */
+    font-size: 42px; /* Tamaño del título */
+    font-weight: 700; /* Negrita */
+    font-style: italic; /* Cursiva */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
+/* Estilos para el texto de la dirección */
+.ubicacion .direccion {
+    position: absolute;
+    left: 400px; /* Posición desde la izquierda (igual que el título) */
+    top: calc(50% + 10px); /* 35px debajo del título */
+    transform: translateY(-50%); /* Ajuste fino para centrar */
+    text-align: left; /* Alineación del texto a la izquierda */
+}
+
+.ubicacion .direccion p {
+    font-size: 18px; /* Tamaño del texto */
+    margin: 0; /* Elimina el margen predeterminado */
+    line-height: 1.4; /* Interlineado ajustado */
+}
+
+.ubicacion .direccion p a {
+    color: #ffffff; /* Color del enlace */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.ubicacion .direccion p a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+.mapa {
+    position: absolute;
+    right: 350px;
+    border-radius: 10px; /* Ajusta el radio del borde según el logo */
+    border: 3px solid black; /* Borde negro */
+    width: 450px; /* Ajusta el tamaño según necesites */
+    height: auto;
+}
+
+/* Estilos para el footer de redes sociales */
+.social-footer {
+    width: 100%;
+    height: 80px;
+    background-color: #184B33; /* Fondo oscuro */
+    display: flex;
+    justify-content: center; /* Centra los iconos horizontalmente */
+    align-items: center; /* Centra los iconos verticalmente */
+    position: relative;
+    bottom: 0;
+}
+
+/* Estilos para los iconos de redes sociales */
+.social-icon {
+    margin: 0 10px; /* Espacio entre los iconos */
+}
+
+.social-icon img {
+    width: 30px; /* Tamaño de los iconos */
+    height: 30px; /* Asegura que los iconos sean cuadrados */
+    transition: transform 0.3s ease; /* Efecto de transición para el hover */
+}
+
+.social-icon img:hover {
+    transform: scale(1.1); /* Efecto de agrandar el icono al pasar el mouse */
+}
+
