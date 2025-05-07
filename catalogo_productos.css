@@ -35,7 +35,7 @@ h1 {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Contenedor de productos */
+/* ESTRUCTURA MODIFICADA PARA LAS CARDS */
 .productos-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -46,61 +46,115 @@ h1 {
     padding: 20px 0;
 }
 
-/* Tarjetas de productos */
+/* MODIFICACIONES PARA LA ESTRUCTURA CON SUBCONTENEDOR */
 .producto-card {
     background: white;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 520px; /* Altura mínima aumentada */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1); /* Curva de animación premium */
+    transform-origin: center bottom; /* El efecto sale desde abajo */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Sombra base */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil */
+    animation: float 4s ease-in-out infinite;
 }
 
-.producto-card:hover {
-    transform: translateY(-5px);
+.product-card :hover{
+    transform: translateY(-10px) scale(1.02); /* Elevación + ligero zoom */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    border-color: rgba(0, 0, 0, 0.1); /* Borde más visible */
+    animation: none; /* Detiene la animación al hacer hover */
 }
 
-/* Imagen del producto */
+.producto-card:hover .producto-imagen img {
+    transform: scale(1.08); /* Zoom más pronunciado */
+}
+
+.producto-card:hover .btn-agregar {
+    background-color: #0a4b2e;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.producto-card:hover .info-item {
+    transform: translateX(3px); /* Ligero movimiento */
+}
+
+
+
+/* CONTENEDOR PRINCIPAL */
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* SUBCONTENEDOR PARA EL BOTÓN */
+.card-footer {
+    padding: 15px 20px 20px;
+    background: white;
+    border-top: 1px solid #eee;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+}
+
+/* IMAGENES ESTANDARIZADAS */
 .producto-imagen {
-    height: 220px;
+    height: 250px; /* Altura fija */
+    width: 100%; /* Ancho completo */
     display: flex;
     align-items: center;
     justify-content: center;
     background: #f8f8f8;
-    padding: 20px;
+    padding: 15px;
     border-bottom: 1px solid #eee;
+    overflow: hidden; /* Para asegurar que nada se desborde */
+    aspect-ratio: 1/1;
+    position: relative; /* Para el efecto hover */
 }
 
 .producto-imagen img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: auto;
+    height: auto;
+    max-width: 130%;
+    max-height: 110%;
+    object-fit: contain; /* Mantiene proporciones sin distorsión */
+    object-position: center;
+    transition: transform 0.3s ease; /* Para efecto hover opcional */
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+
+
 }
 
-/* Información del producto */
+/* Efecto hover opcional */
+.producto-card:hover .producto-imagen img {
+    transform: translate(-50%, -50%) scale(1.03);
+}
+
+/* INFORMACIÓN (ajustada) */
 .producto-info {
     padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espacio uniforme entre items */
 }
 
-.info-item {
-    margin-bottom: 10px;
-    font-size: 14px;
-    line-height: 1.4;
-    color: #444;
-}
-
-.info-label {
-    font-weight: bold;
-    color: #10663E;
-    display: inline-block;
-    width: 90px;
-}
-
-/* Botón de agregar al carrito (solo estilo) */
+/* BOTÓN (modificado) */
 .btn-agregar {
     display: block;
     width: 100%;
     padding: 12px;
-    margin-top: 15px;
     background-color: #10663E;
     color: white;
     border: none;
@@ -108,29 +162,28 @@ h1 {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .btn-agregar:hover {
     background-color: #0a4b2e;
+    transform: translateY(-2px);
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    .title-container {
-        height: 180px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
     .productos-container {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 
     .producto-imagen {
         height: 180px;
+        padding: 15px;
+    }
+
+    .btn-agregar {
+        width: calc(100% - 30px);
+        left: 15px;
     }
 }
 
@@ -186,3 +239,10 @@ h1 {
 .btn-volver:hover .icono-flecha {
     transform: translateX(-4px);
 }
+
+/* Animación sutil de flotación (opcional) */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+

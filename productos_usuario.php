@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
-    <link rel="stylesheet" href="catalogo.css">
+    <link rel="stylesheet" href="catalogo_productos.css">
 </head>
 <body>
 <div class="title-container">
@@ -36,16 +36,20 @@
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo '<div class="producto-card">';
-            echo '  <div class="producto-imagen">';
-            echo '    <img src="' . htmlspecialchars($row['imagen']) . '" alt="' . htmlspecialchars($row['marca']) . '">';
-            echo '  </div>';
-            echo '  <div class="producto-info">';
-            echo '    <div class="info-item"><span class="info-label">Marca:</span> ' . htmlspecialchars($row['marca']) . '</div>';
-            echo '    <div class="info-item"><span class="info-label">Modelo:</span> ' . htmlspecialchars($row['modelo']) . '</div>';
-            echo '    <div class="info-item"><span class="info-label">Precio:</span> $' . htmlspecialchars($row['precio']) . '</div>';
-            echo '    <div class="info-item"><span class="info-label">Descripción:</span> ' . htmlspecialchars($row['descripcion']) . '</div>';
-            echo '    <div class="info-item"><span class="info-label">Stock:</span> ' . htmlspecialchars($row['stock']) . '</div>';
-            echo '    <div class="info-item"><span class="info-label">Género:</span> ' . htmlspecialchars($row['genero']) . '</div>';
+            echo '  <div class="card-content">'; // Contenedor principal de contenido
+            echo '    <div class="producto-imagen">';
+            echo '      <img src="' . htmlspecialchars($row['imagen']) . '" alt="' . htmlspecialchars($row['marca']) . '">';
+            echo '    </div>';
+            echo '    <div class="producto-info">';
+            echo '      <div class="info-item"><span class="info-label">Marca:</span> ' . htmlspecialchars($row['marca']) . '</div>';
+            echo '      <div class="info-item"><span class="info-label">Modelo:</span> ' . htmlspecialchars($row['modelo']) . '</div>';
+            echo '      <div class="info-item"><span class="info-label">Precio:</span> $' . htmlspecialchars($row['precio']) . '</div>';
+            echo '      <div class="info-item"><span class="info-label">Descripción:</span> ' . htmlspecialchars($row['descripcion']) . '</div>';
+            echo '      <div class="info-item"><span class="info-label">Stock:</span> ' . htmlspecialchars($row['stock']) . '</div>';
+            echo '      <div class="info-item"><span class="info-label">Género:</span> ' . htmlspecialchars($row['genero']) . '</div>';
+            echo '    </div>';
+            echo '  </div>'; // Cierre de card-content
+            echo '  <div class="card-footer">'; // Nuevo contenedor para el botón
             echo '    <button class="btn-agregar">Agregar al carrito</button>';
             echo '  </div>';
             echo '</div>';
@@ -64,7 +68,6 @@
         Volver a la página de inicio
     </a>
 </div>
-
 
 </body>
 </html>
