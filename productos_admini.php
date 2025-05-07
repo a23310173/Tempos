@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos (Vista de administrador)</title>
-    <link rel="stylesheet" href="productos_admin.css">
+    <link rel="stylesheet" href="productos_administrador.css">
 </head>
 <body>
 <div class="title-container">
@@ -21,6 +21,8 @@
         <th>Stock</th>
         <th>Género</th>
         <th>Imagen</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
     </tr>
     <?php
     $servername = "localhost";
@@ -37,7 +39,7 @@
     }
 
     // Consulta para obtener todos los productos
-    $sql = "SELECT marca, modelo, precio, descripcion, stock, genero, imagen FROM productos";
+    $sql = "SELECT id, marca, modelo, precio, descripcion, stock, genero, imagen FROM productos";
     $result = $conn->query($sql);
 
     // Mostrar todos los productos
@@ -52,6 +54,9 @@
             echo "<td>" . htmlspecialchars($row['genero']) . "</td>";
             // Mostrar imagen directamente desde la URL almacenada
             echo "<td><a href='" . htmlspecialchars($row['imagen']) . "' target='_blank'>Enlace</a></td>";;
+            //Agregar botones de editar y eliminar
+            echo "<td><a href='modificar_producto.php?id=" . htmlspecialchars($row['id']) . "'>Modificar</a></td>";
+            echo "<td><a href='eliminar_producto.php?id=" . htmlspecialchars($row['id']) . "'>Eliminar</a></td>";
             echo "</tr>";
         }
     } else {
