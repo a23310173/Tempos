@@ -66,6 +66,6 @@
     $conn->close();
     ?>
 </table>
-<a href="home.html">Volver a la página de inicio</a>
+<a href="home.php">Volver a la página de inicio</a>
 </body>
 </html>

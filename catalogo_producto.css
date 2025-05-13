@@ -26,6 +26,27 @@ body {
     border-radius: 12px;
     border: 1px solid #000000;
 }
+.title-container .carrito {
+    position: absolute;
+    top: 60px;
+    left: 1700px; /* Mantiene la posición ajustada */
+    width: 87px;
+    height: 87px;
+    background-image: url('media/carrito.png'); /* Imagen del carrito */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el botón */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita repeticiones */
+    border-radius: 12px; /* Bordes redondeados */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    z-index: 2; /* Mantiene la posición sobre otros elementos */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.title-container .carrito:hover {
+    background-color: #184b33; /* Fondo claro al hacer hover */
+    transform: scale(1.05); /* Efecto de agrandar ligeramente */
+}
 
 h1 {
     font-size: 2.2rem;

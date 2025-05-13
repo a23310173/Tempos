@@ -1,16 +1,25 @@
+<?php
+// Iniciar la sesión
+session_start();
+
+// Verificar si ya hay una sesión de usuario o un guest_id
+if (!isset($_SESSION['guest_id'])) {
+    // Si no existe un guest_id, crear uno
+    $_SESSION['guest_id'] = uniqid('guest_');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEMPO</title>
-    <link rel="stylesheet" href="home.css">
-    <!-- Enlaza la fuente desde Google Fonts o Adobe Fonts (si aplica) -->
+    <link rel="stylesheet" href="homes.css">
     <link href="https://fonts.googleapis.com/css2?family=Title+Hero&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <!-- Barra de tareas -->
     <nav class="navbar">
         <ul>
             <li><a href="productos_usuario.php">Productos</a></li>
@@ -22,22 +31,21 @@
         </div>
     </nav>
 
-    <!-- Header con video, logo y texto -->
     <header>
         <video width="1280" height="347" autoplay muted loop>
             <source src="media/tempohome.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de videos.
         </video>
         <img src="media/tempologo.png" alt="Logo TEMPO" class="logo">
+        <a href="carrito.php" class="carrito"></a>
         <div class="header-text">
             <h1>TEMPO</h1>
             <p>since 2025</p>
         </div>
     </header>
 
-    <!-- Contenedor de Misión y Visión -->
     <div class="mission-vision">
-        <div class="nosotros-title">Nosotros</div> <!-- Título "Nosotros" -->
+        <div class="nosotros-title">Nosotros</div>
         <div class="card">
             <h2>MISIÓN</h2>
             <p>Ofrecer relojes de alta calidad que combinen diseño, funcionalidad y artesanía, brindando una experiencia personalizada y asesoría experta para que cada cliente encuentre la pieza perfecta que refleje su estilo y personalidad, respaldados por un servicio excepcional.</p>
@@ -48,7 +56,6 @@
         </div>
     </div>
 
-    <!-- Sección de Ubicación -->
     <div class="ubicacion">
         <h2>Ubicación</h2>
         <div class="direccion">

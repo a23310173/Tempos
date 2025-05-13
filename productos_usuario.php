@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
-    <link rel="stylesheet" href="catalogo_productos.css">
+    <link rel="stylesheet" href="catalogo_producto.css">
 </head>
 <body>
 <div class="title-container">
     <img src="media/tempologo.png" alt="Logo" class="logo">
+    <a href="carrito.php" class="carrito"></a>
     <h1>Productos</h1>
 </div>
 
@@ -63,7 +64,7 @@
 </div>
 
 <div class="contenedor-btn-volver">
-    <a href="home.html" class="btn-volver">
+    <a href="home.php" class="btn-volver">
         <span class="icono-flecha">←</span>
         Volver a la página de inicio
     </a>

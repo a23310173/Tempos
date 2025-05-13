@@ -2,19 +2,8 @@
 // Iniciar la sesión
 session_start();
 
-// Datos de conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "123456789";
-$dbname = "TEMPOS";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
-}
+// Incluir la conexión a la base de datos
+include('conexion.php');
 
 // Procesar el formulario de inicio de sesión
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,9 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verificar la contraseña encriptada
         if (password_verify($password, $row['contrasena'])) {
             // Inicio de sesión exitoso
-            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['id_usuario'] = $row['id'];  // Guardamos el id del usuario en la sesión
             $_SESSION['user_name'] = $row['nombre'];
-            header("Location: home.html"); // Redirigir al usuario a la página de inicio
+
+            // Redirigir al carrito o a la página deseada
+            header("Location: carrito.php"); // Puedes cambiar a la página de carrito
             exit();
         } else {
             echo "Contraseña incorrecta.";
@@ -47,5 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 
+// Cerrar la conexión
 $conn->close();
 ?>

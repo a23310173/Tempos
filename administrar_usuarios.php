@@ -65,7 +65,7 @@
 </div>
 
 <div class="contenedor-btn-volver">
-    <a href="home.html" class="btn-volver">← Volver a la página de inicio</a>
+    <a href="home.php" class="btn-volver">← Volver a la página de inicio</a>
 </div>
 
 </body>

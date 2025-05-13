@@ -101,6 +101,29 @@ header .logo {
     z-index: 2; /* Asegura que el logo esté sobre el video */
 }
 
+/* EStilos para el carrito a un lado del logo*/
+header .carrito {
+    position: absolute;
+    top: 40px;
+    left: 140px; /* Mantiene la posición ajustada */
+    width: 87px;
+    height: 87px;
+    background-image: url('media/carrito.png'); /* Imagen del carrito */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el botón */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita repeticiones */
+    border-radius: 12px; /* Bordes redondeados */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    z-index: 2; /* Mantiene la posición sobre el video */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+header .carrito:hover {
+    background-color: #184b33; /* Fondo claro al hacer hover */
+    transform: scale(1.05); /* Efecto de agrandar ligeramente */
+}
+
 /* Estilos para el texto */
 header .header-text {
     position: absolute;
