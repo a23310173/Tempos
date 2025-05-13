@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_name'] = $row['nombre'];
 
             // Redirigir al carrito o a la página deseada
-            header("Location: carrito.php"); // Puedes cambiar a la página de carrito
+            header("Location: home.php"); // La redirección puede cambiar dependiendo de si es un usuario logueado o invitado
             exit();
         } else {
             echo "Contraseña incorrecta.";

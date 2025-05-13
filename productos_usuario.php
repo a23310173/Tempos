@@ -1,3 +1,8 @@
+<?php
+session_start();
+include('conexion.php'); // Usamos conexion.php para la conexión a la base de datos
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,24 +21,11 @@
 
 <div class="productos-container">
     <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "123456789";
-    $dbname = "TEMPOS";
-
-    // Crear la conexión
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Verificar conexión
-    if ($conn->connect_error) {
-        die("Conexión fallida: " . $conn->connect_error);
-    }
-
     // Consulta para obtener todos los productos
-    $sql = "SELECT marca, modelo, precio, descripcion, stock, genero, imagen FROM productos";
+    $sql = "SELECT id, marca, modelo, precio, descripcion, stock, genero, imagen FROM productos";
     $result = $conn->query($sql);
 
-    // Mostrar todos los productos
+    // Verificar si hay productos
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo '<div class="producto-card">';
@@ -50,13 +42,20 @@
             echo '      <div class="info-item"><span class="info-label">Género:</span> ' . htmlspecialchars($row['genero']) . '</div>';
             echo '    </div>';
             echo '  </div>'; // Cierre de card-content
-            echo '  <div class="card-footer">'; // Nuevo contenedor para el botón
-            echo '    <button class="btn-agregar">Agregar al carrito</button>';
+
+            // Formulario para agregar al carrito
+            echo '  <div class="card-footer">';
+            echo '    <form action="agregar_carrito.php" method="POST">';
+            echo '      <input type="hidden" name="id_producto" value="' . $row['id'] . '">';
+            echo '      <input type="number" name="cantidad" value="1" min="1" max="' . $row['stock'] . '" required>';
+            echo '      <button type="submit" class="btn-agregar">Agregar al carrito</button>';
+            echo '    </form>';
             echo '  </div>';
+
             echo '</div>';
         }
     } else {
-        echo '<p class="no-productos">No hay productos registrados</p>';
+        echo '<p>No hay productos disponibles.</p>';
     }
 
     $conn->close();
@@ -64,10 +63,7 @@
 </div>
 
 <div class="contenedor-btn-volver">
-    <a href="home.php" class="btn-volver">
-        <span class="icono-flecha">←</span>
-        Volver a la página de inicio
-    </a>
+    <a href="home.php" class="btn-volver">← Volver a la página de inicio</a>
 </div>
 
 </body>

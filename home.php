@@ -4,7 +4,6 @@ session_start();
 
 // Verificar si ya hay una sesión de usuario o un guest_id
 if (!isset($_SESSION['guest_id'])) {
-    // Si no existe un guest_id, crear uno
     $_SESSION['guest_id'] = uniqid('guest_');
 }
 ?>
@@ -25,9 +24,20 @@ if (!isset($_SESSION['guest_id'])) {
             <li><a href="productos_usuario.php">Productos</a></li>
             <li><a href="https://maps.app.goo.gl/RP6LHUu6US6wS6ov7">Ubicación</a></li>
         </ul>
+
         <div class="auth-buttons">
-            <a href="login.html">Login</a>
-            <a href="register.html">Registro</a>
+            <?php if (isset($_SESSION['user_name'])): ?>
+                <!-- Botón de usuario -->
+                <a href="vista_usuario.php" class="btn-usuario">
+                    <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+                </a>
+                <!-- Botón de logout -->
+                <a href="logout.php" class="btn-logout">Logout</a>
+            <?php else: ?>
+                <!-- Botones de login y registro si no está logueado -->
+                <a href="login.html" class="btn-auth">Login</a>
+                <a href="register.html" class="btn-auth">Registro</a>
+            <?php endif; ?>
         </div>
     </nav>
 
