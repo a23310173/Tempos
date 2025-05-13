@@ -1,0 +1,87 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Contenedor del título con degradado */
+.title-container {
+    height: 200px;
+    background: linear-gradient(to bottom, #177347, #10663E);
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title-container .logo {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    width: 87px;
+    height: 87px;
+    border-radius: 12px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.title-container h1 {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px;
+    font-weight: 550;
+    color: #FFFFFF;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor principal de botones */
+.admin-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.admin-btn {
+    width: 200px;
+    padding: 15px 20px;
+    background-color: #177347;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.admin-btn:hover {
+    background-color: #10663E;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el botón de volver */
+.contenedor-btn-volver {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-volver {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #177347;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #10663E;
+}

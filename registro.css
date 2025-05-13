@@ -110,13 +110,14 @@ header .header-title {
     left: 50%;
     transform: translateX(-50%);
     width: 1080px;
-    height: 720px;
+    height: 735px;
     z-index: 1;
 }
 
 /* Contenedor para el formulario dentro del video */
 .form-container {
     position: absolute;
+    margin-top: 15px;
     top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
