@@ -28,7 +28,7 @@ $stmt->close();
     <head>
         <meta charset="UTF-8">
         <title>Modificar Producto</title>
-        <link rel="stylesheet" href="modificar_producto.css">
+        <link rel="stylesheet" href="modificar_productos.css">
     </head>
     <body>
     <div class="title-container">

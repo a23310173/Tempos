@@ -1,0 +1,117 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Contenedor del título con degradado */
+.title-container {
+    height: 200px;
+    background: linear-gradient(to bottom, #177347, #10663E);
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del logo */
+.title-container .logo {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    width: 87px;
+    height: 87px;
+    border-radius: 12px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+/* Estilos del título */
+.title-container h1 {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Title Hero', sans-serif;
+    font-size: 36px;
+    font-weight: 550;
+    color: #FFFFFF;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos del formulario */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #10663E;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #10663E;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(16, 102, 62, 0.2);
+}
+
+/* Estilos para los botones */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn-update, .btn-cancel {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-update {
+    background-color: #10663E;
+    color: white;
+}
+
+.btn-update:hover {
+    background-color: #0a4b2e;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cancel {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.btn-cancel:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

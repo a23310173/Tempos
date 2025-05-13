@@ -3,37 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="registro_productos.html">
+    <link rel="stylesheet" href="registro_productos.css">
     <title>Registro de productos</title>
-
 </head>
 <body>
-<div class="title-container">
+<header class="title-container">
     <img src="media/tempologo.png" alt="Logo" class="logo">
-
-
     <h1>Registro de productos</h1>
-    <section>
-        <div>
-            <form method="POST" action="registro_productos.php" name="signin-form">
+</header>
+
+<main class="main-content">
+    <section class="form-container">
+        <form method="POST" action="registro_productos.php" name="signin-form">
+            <div class="form-group">
                 <label for="marca">Marca del reloj</label>
                 <input type="text" id="marca" name="marca" required>
+            </div>
+
+            <div class="form-group">
                 <label for="modelo">Modelo del reloj</label>
                 <input type="text" id="modelo" name="modelo" required>
+            </div>
+
+            <div class="form-group">
                 <label for="precio">Precio</label>
                 <input type="number" id="precio" name="precio" required>
+            </div>
+
+            <div class="form-group">
                 <label for="descripcion">Descripción</label>
                 <input type="text" id="descripcion" name="descripcion" required>
+            </div>
+
+            <div class="form-group">
                 <label for="stock">Stock</label>
                 <input type="number" id="stock" name="stock" required>
+            </div>
+
+            <div class="form-group">
                 <label for="genero">Género</label>
                 <input type="text" id="genero" name="genero" required>
-                <label for = "imagen">Imagen</label>
+            </div>
+
+            <div class="form-group">
+                <label for="imagen">Imagen</label>
                 <input type="text" id="imagen" name="imagen" required>
-                <button type="submit">Registrar</button>
-            </form>
-        </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Registrar</button>
+            </div>
+        </form>
     </section>
-</div>
+</main>
 </body>
 </html>

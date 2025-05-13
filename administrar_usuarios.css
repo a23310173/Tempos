@@ -1,0 +1,130 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Contenedor del título con degradado */
+.title-container {
+    height: 200px;
+    background: linear-gradient(to bottom, #177347, #10663E);
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del logo */
+.title-container .logo {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    width: 87px;
+    height: 87px;
+    border-radius: 12px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+/* Estilos del título */
+.title-container h1 {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Title Hero', sans-serif;
+    font-size: 36px;
+    font-weight: 550;
+    color: #FFFFFF;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la tabla de usuarios */
+.usuarios-table {
+    width: 90%;
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.usuarios-table th,
+.usuarios-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.usuarios-table th {
+    background-color: #10663E;
+    color: white;
+    font-weight: bold;
+}
+
+.usuarios-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.usuarios-table tr:hover {
+    background-color: #e6f5eb;
+}
+
+/* Asegurar que los botones estén bien distribuidos */
+.usuarios-table td a {
+    display: inline-block;
+    padding: 8px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: -200px;
+    text-align: center;
+}
+
+.usuarios-table .btn-modificar {
+    background-color: #177347;
+    margin-left: 20px;
+    margin-right: 50px;
+
+}
+
+.usuarios-table .btn-modificar:hover {
+    background-color: #10663E;
+}
+
+.usuarios-table .btn-eliminar {
+    background-color: #E74C3C;
+    margin-left: 25px;
+}
+
+.usuarios-table .btn-eliminar:hover {
+    background-color: #C0392B;
+}
+
+/* Estilo para la tabla cuando no hay usuarios */
+.no-usuarios {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Estilos para los botones */
+.btn-volver {
+    display: inline-block;
+    margin: 30px auto;
+    margin-left: 15px;
+    padding: 10px 20px;
+    background-color: #177347;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.btn-volver:hover {
+    background-color: #10663E;
+}
+

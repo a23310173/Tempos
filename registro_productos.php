@@ -1,29 +1,61 @@
 <?php
 
-$servername = "localhost"; // El servidor de la base de datos, generalmente localhost
-$username = "root"; // El usuario de la base de datos
-$password = "123456789"; // La contraseña del usuario de la base de datos
-$dbname = "TEMPOS"; // El nombre de la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "123456789";
+$dbname = "TEMPOS";
 
 // Crear la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$marca = $_POST['marca'];
-$modelo = $_POST['modelo'];
-$precio = $_POST['precio'];
-$descripcion = $_POST['descripcion'];
-$stock = $_POST['stock'];
-$genero = $_POST['genero'];
-$imagen = $_POST['imagen'];
-
-$sql = mysqli_query($conn, "INSERT INTO productos (marca, modelo, precio, descripcion, stock, genero, imagen) VALUES ('$marca', '$modelo', $precio, '$descripcion', $stock, '$genero', '$imagen')");
-
-if ($sql){
-    echo "Producto registrado";
-} else {
-    echo "Error al registrar producto";
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Error en la conexión: " . $conn->connect_error);
 }
 
-mysqli_close($conn);
+// Verificar si el formulario fue enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Validar y sanitizar los inputs
+    $marca = htmlspecialchars(trim($_POST['marca']));
+    $modelo = htmlspecialchars(trim($_POST['modelo']));
+    $precio = filter_var($_POST['precio'], FILTER_VALIDATE_FLOAT);
+    $descripcion = htmlspecialchars(trim($_POST['descripcion']));
+    $stock = filter_var($_POST['stock'], FILTER_VALIDATE_INT);
+    $genero = htmlspecialchars(trim($_POST['genero']));
+    $imagen = htmlspecialchars(trim($_POST['imagen']));
+
+    // Verificar que no haya campos vacíos
+    if ($marca && $modelo && $precio !== false && $descripcion && $stock !== false && $genero && $imagen) {
+
+        // Preparar la consulta para evitar SQL Injection
+        $stmt = $conn->prepare("INSERT INTO productos (marca, modelo, precio, descripcion, stock, genero, imagen) 
+                                VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+        if ($stmt) {
+            // Vincular parámetros
+            $stmt->bind_param("ssdisss", $marca, $modelo, $precio, $descripcion, $stock, $genero, $imagen);
+
+            // Ejecutar la consulta
+            if ($stmt->execute()) {
+                echo "Producto registrado correctamente.";
+            } else {
+                echo "Error al registrar el producto: " . $stmt->error;
+            }
+
+            // Cerrar la declaración
+            $stmt->close();
+        } else {
+            echo "Error en la preparación de la consulta: " . $conn->error;
+        }
+
+    } else {
+        echo "Por favor, complete todos los campos correctamente.";
+    }
+
+}
+
+// Cerrar la conexión
+$conn->close();
 
 ?>
