@@ -47,7 +47,7 @@ include('conexion.php'); // Usamos conexion.php para la conexión a la base de d
             echo '  <div class="card-footer">';
             echo '    <form action="agregar_carrito.php" method="POST">';
             echo '      <input type="hidden" name="id_producto" value="' . $row['id'] . '">';
-            echo '      <input type="number" name="cantidad" value="1" min="1" max="' . $row['stock'] . '" required>';
+            echo '      <input type="number" class="cantidad" name="cantidad" value="1" min="1" max="' . $row['stock'] . '" required>';
             echo '      <button type="submit" class="btn-agregar">Agregar al carrito</button>';
             echo '    </form>';
             echo '  </div>';

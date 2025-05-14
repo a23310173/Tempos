@@ -24,6 +24,7 @@ $result = $conn->query($query);
         <table class="bitacora-table">
             <thead>
             <tr>
+                <th>ID</th>
                 <th>Fecha</th>
                 <th>Nombre</th>
                 <th>Sentencia</th>
@@ -34,6 +35,7 @@ $result = $conn->query($query);
             <tbody>
             <?php while ($row = $result->fetch_assoc()): ?>
                 <tr>
+                    <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['fecha']; ?></td>
                     <td><?php echo $row['nombre']; ?></td>
                     <td><?php echo $row['sentencia']; ?></td>

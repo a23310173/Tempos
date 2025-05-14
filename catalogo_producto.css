@@ -267,3 +267,21 @@ h1 {
     50% { transform: translateY(-5px); }
 }
 
+
+body .card-footer .cantidad {
+    width: 60px;
+    padding: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border: 1px solid #0a4b2e;
+    border-radius: 5px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+body .card-footer .cantidad:focus {
+    border-color: #177347;
+    background-color: #e6f7ec;
+}
+

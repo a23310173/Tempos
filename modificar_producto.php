@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-
+session_start();
 // Mostrar el producto a modificar
 if (!isset($_GET['id'])) {
     header("Location: productos_admini.php");

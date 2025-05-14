@@ -8,6 +8,15 @@ include('conexion.php');
 if ($conn->connect_error) {
     die("Error en la conexión: " . $conn->connect_error);
 }
+// Registrar usuario en sesion_activa
+if (isset($_SESSION['user_name'])) {
+    $nombre_usuario = $_SESSION['user_name'];
+    $conn->query("
+                INSERT INTO sesion_activa (id, usuario) 
+                VALUES (1, '$nombre_usuario') 
+                ON DUPLICATE KEY UPDATE usuario = '$nombre_usuario'
+            ");
+}
 
 // Verificar si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,12 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id_usuario = $_SESSION['id_usuario'];
 
         // Preparar la consulta para evitar SQL Injection
-        $stmt = $conn->prepare("INSERT INTO productos (marca, modelo, precio, descripcion, stock, genero, imagen, id_usuario) 
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO productos (marca, modelo, precio, descripcion, stock, genero, imagen) 
+                                VALUES (?, ?, ?, ?, ?, ?, ?)");
 
         if ($stmt) {
             // Vincular parámetros
-            $stmt->bind_param("ssdisssi", $marca, $modelo, $precio, $descripcion, $stock, $genero, $imagen, $id_usuario);
+            $stmt->bind_param("ssdisss", $marca, $modelo, $precio, $descripcion, $stock, $genero, $imagen);
 
             // Ejecutar la consulta
             if ($stmt->execute()) {

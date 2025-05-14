@@ -24,6 +24,26 @@ if ($result->num_rows == 0) {
     header('Location: login.php');
     exit();
 }
+$nombre_usuario = $_SESSION['user_name'];
+
+// Actualizar o insertar en la tabla sesion_activa
+$conn->query("
+    INSERT INTO sesion_activa (id, usuario) 
+    VALUES (1, '$nombre_usuario') 
+    ON DUPLICATE KEY UPDATE usuario = '$nombre_usuario'
+");
+
+// Verificar si es administrador
+$sql_admin = "SELECT id FROM administradores WHERE nombre = ?";
+$stmt_admin = $conn->prepare($sql_admin);
+$stmt_admin->bind_param("s", $nombre_usuario);
+$stmt_admin->execute();
+$result_admin = $stmt_admin->get_result();
+
+if ($result_admin->num_rows > 0) {
+    header('Location: vista_administrador.php');
+    exit();
+}
 
 $user = $result->fetch_assoc();
 ?>
