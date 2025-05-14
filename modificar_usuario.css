@@ -58,22 +58,38 @@ label {
     color: #10663E;
 }
 
-input[type="text"],
-input[type="password"] {
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+}
+
+.input-group input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
     box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+.input-group input:focus {
     border-color: #10663E;
     outline: none;
     box-shadow: 0 0 0 2px rgba(16, 102, 62, 0.2);
+}
+
+/* Estilo para los campos nombre y email */
+.input-group.nombre-email {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group.nombre-email input {
+    flex: 1;
 }
 
 /* Estilos para los botones */
