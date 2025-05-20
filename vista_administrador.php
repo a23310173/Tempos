@@ -16,9 +16,11 @@
 
 <div class="admin-container">
     <a href="administrar_usuarios.php" class="admin-btn">Administrar Usuarios</a>
+    <a href="registrar_usuario.php" class="admin-btn">Registrar usuarios</a>
     <a href="productos_admini.php" class="admin-btn">Administrar Productos</a>
     <a href="registro_productos.html" class="admin-btn">Registrar Producto</a>
     <a href="bitacora.php" class="admin-btn">Bitácora</a>
+
 </div>
 
 <div class="contenedor-btn-volver">
