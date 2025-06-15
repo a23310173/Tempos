@@ -35,7 +35,7 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="carritod.css">
+    <link rel="stylesheet" href="carrito1.css">
 </head>
 <body>
 
@@ -77,7 +77,7 @@ $result = $stmt->get_result();
 <a href="productos_usuario.php">Volver a la tienda</a>
 
 <!-- Botón "Comprar" -->
-<a href="compra.php">Comprar</a>
+<a href="pago.php">Comprar</a>
 
 <?php $stmt->close(); ?>
 </body>

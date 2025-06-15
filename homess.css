@@ -5,408 +5,353 @@ body {
     display: flex;
     justify-content: center;
     background-color: #FFFFFF;
-    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la ventana */
+    min-height: 100vh;
 }
 
 /* Contenedor principal */
 .container {
-    max-width: 1920px; /* Ancho máximo */
-    width: 100%; /* Ocupa el 100% del ancho disponible */
+    max-width: 1920px;
+    width: 100%;
     background-color: #FFFFFF;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    margin: 0 auto; /* Centra el contenedor en pantallas más grandes */
+    margin: 0 auto;
+    overflow-x: hidden; /* Evita el scroll horizontal en móviles */
 }
 
-/* Barra de tareas */
+/* Barra de navegación */
 .navbar {
-    position: absolute;
-    top: 50px; /* Margen superior ajustado a 50px */
-    right: 20px; /* Margen derecho */
-    z-index: 10; /* Asegura que esté por encima del video */
+    /* Eliminamos position: absolute; para que la navbar fluya con el contenido en móviles */
+    width: 100%; /* Ocupa todo el ancho */
+    padding: 20px 20px; /* Padding para espacio */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para que se vea sobre el video */
     display: flex;
+    justify-content: space-between; /* Espacio entre los grupos de enlaces y botones */
     align-items: center;
-    gap: 20px; /* Espacio entre elementos */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+    position: absolute; /* Mantenemos absoluto para que quede sobre el video */
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 .navbar ul {
-    list-style: none; /* Elimina los puntos de la lista */
+    list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 15px;
     display: flex;
-    gap: 20px; /* Espacio entre elementos */
+    gap: 20px;
 }
 
 .navbar ul li a {
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: #ffffff; /* Color del texto blanco */
-    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
-    font-size: 18px; /* Tamaño de la fuente */
-    font-weight: 400; /* Grosor de la fuente */
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Title Hero', sans-serif;
+    font-size: 1.1em; /* Usamos em para tamaño de fuente relativo */
+    font-weight: 400;
+    white-space: nowrap; /* Evita que los enlaces se rompan */
 }
 
 .navbar ul li a:hover {
-    text-decoration: underline; /* Subrayado al pasar el mouse */
+    text-decoration: underline;
 }
 
-/* Contenedor para Login y Registro */
 .navbar .auth-buttons {
     display: flex;
-    gap: 10px; /* Espacio entre los botones */
+    gap: 10px;
 }
 
 .navbar .auth-buttons a {
     text-decoration: none;
-    color: #ffffff; /* Color del texto blanco */
-    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
-    font-size: 18px; /* Tamaño de la fuente */
-    font-weight: 400; /* Grosor de la fuente */
-    background-color: #1B1D1C; /* Color de fondo */
-    padding: 10px 20px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados (similar al logo) */
-    transition: background-color 0.3s ease; /* Transición suave */
+    color: #ffffff;
+    font-family: 'Title Hero', sans-serif;
+    font-size: 1em; /* Usamos em */
+    font-weight: 400;
+    background-color: #1B1D1C;
+    padding: 8px 15px; /* Reducimos un poco el padding */
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
 }
 
 .navbar .auth-buttons a:hover {
-    background-color: #2C2F2E; /* Cambio de color al pasar el mouse */
+    background-color: #2C2F2E;
 }
 
 /* Estilos para el header (video) */
 header {
     position: relative;
     width: 100%;
-    height: 347px;
+    height: 347px; /* Altura fija para el video, se ajustará mejor con object-fit */
+    overflow: hidden; /* Asegura que el video no se desborde */
 }
 
-/* Estilos para el video */
 header video {
-    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
-    position: relative;
-    z-index: 1; /* Asegura que el video esté detrás de la barra de navegación */
+    object-fit: cover; /* Recorta el video para que cubra el área */
+    object-position: center; /* Centra el video */
+    position: relative; /* Lo mantenemos relativo para z-index */
+    z-index: 1;
 }
 
-/* Estilos para el logo */
+/* Estilos para el logo y carrito */
 header .logo {
     position: absolute;
-    top: 40px;
+    top: 20px; /* Ajustamos top para que no choque con la navbar si cambiamos su posición */
     left: 20px;
-    width: 87px;
-    height: 87px;
+    width: 70px; /* Reducimos el tamaño para móviles */
+    height: 70px; /* Reducimos el tamaño para móviles */
     border-radius: 12px;
     border: 1px solid #000000;
     box-sizing: border-box;
-    z-index: 2; /* Asegura que el logo esté sobre el video */
+    z-index: 2;
 }
 
-/* EStilos para el carrito a un lado del logo*/
 header .carrito {
     position: absolute;
-    top: 40px;
-    left: 140px; /* Mantiene la posición ajustada */
-    width: 87px;
-    height: 87px;
-    background-image: url('media/carrito.png'); /* Imagen del carrito */
-    background-size: cover; /* Ajusta la imagen para cubrir todo el botón */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita repeticiones */
-    border-radius: 12px; /* Bordes redondeados */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
-    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
-    z-index: 2; /* Mantiene la posición sobre el video */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    top: 20px; /* Alineado con el logo */
+    left: 100px; /* Ajustamos la posición relativa al logo */
+    width: 70px; /* Reducimos el tamaño */
+    height: 70px; /* Reducimos el tamaño */
+    background-image: url('media/carrito.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    box-sizing: border-box;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 header .carrito:hover {
-    background-color: #184b33; /* Fondo claro al hacer hover */
-    transform: scale(1.05); /* Efecto de agrandar ligeramente */
+    background-color: #184b33;
+    transform: scale(1.05);
 }
 
-/* Estilos para el texto */
+/* Estilos para el texto del header */
 header .header-text {
     position: absolute;
-    top: 160px; /* 160px desde la parte superior */
-    left: 50%; /* Centrado horizontalmente */
-    transform: translateX(-50%); /* Ajuste fino para centrar */
-    text-align: center; /* Centrar el texto */
+    top: 50%; /* Centrado vertical */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado con transform */
+    text-align: center;
     color: #ffffff;
-    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
-    width: 260px; /* Ancho del contenedor (mismo que el tamaño de "TEMPO") */
-    z-index: 2; /* Asegura que el texto esté sobre el video */
+    font-family: 'Title Hero', sans-serif;
+    width: 90%; /* Ancho responsivo */
+    max-width: 300px; /* Máximo para evitar que sea demasiado grande en pantallas grandes */
+    z-index: 2;
 }
 
 header .header-text h1 {
-    font-size: 73px; /* Tamaño de "TEMPO" */
-    margin: 0; /* Elimina el margen predeterminado */
-    line-height: 1; /* Ajusta el interlineado */
+    font-size: 4em; /* Usamos em para tamaño de fuente relativo */
+    margin: 0;
+    line-height: 1;
     font-weight: 550;
+    white-space: nowrap; /* Evita salto de línea de TEMPO */
 }
 
 header .header-text p {
-    font-size: 32px; /* Tamaño de "since 2025" */
-    margin: 0; /* Elimina el margen predeterminado */
-    line-height: 1; /* Ajusta el interlineado */
-    margin-top: 10px; /* Espacio entre "TEMPO" y "since 2025" */
-    margin-left: 10px; /* Mueve "since 2025" un poco a la derecha */
+    font-size: 1.5em; /* Usamos em */
+    margin: 0;
+    line-height: 1;
+    margin-top: 5px; /* Reducimos el margen */
+    margin-left: 0; /* Quitamos el margen a la izquierda */
     text-decoration: underline;
     text-decoration-color: darkgrey;
+    white-space: nowrap; /* Evita salto de línea de "since 2025" */
 }
 
-/* Estilos para el contenedor de Misión y Visión */
+/* Contenedor de Misión y Visión */
 .mission-vision {
-    width: 100%; /* Ocupa el 100% del ancho del contenedor */
-    height: 300px; /* Altura del contenedor */
-    background: linear-gradient(to top, #02542D, #174833); /* Degradado oscuro arriba, desvaneciendo hacia abajo */
+    width: 100%;
+    padding: 50px 20px; /* Agregamos padding para espaciar */
+    background: linear-gradient(to top, #02542D, #174833);
     display: flex;
-    align-items: center;
-    position: relative; /* Para posicionar el título "Nosotros" */
+    flex-direction: column; /* Cambiamos a columna por defecto (móvil primero) */
+    align-items: center; /* Centramos los ítems */
+    gap: 15px; /* Espacio entre las tarjetas */
+    position: relative;
+    box-sizing: border-box;
 }
 
-/* Estilos para el título "Nosotros" */
 .mission-vision .nosotros-title {
-    position: absolute;
-    left: 50px; /* Posición desde la izquierda */
-    top: 50%; /* Centrado verticalmente */
-    transform: translateY(-50%); /* Ajuste fino para centrar */
-    color: #ffffff; /* Color del texto */
-    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
-    font-size: 42px; /* Tamaño del título */
-    font-weight: 700; /* Negrita */
-    font-style: italic; /* Cursiva */
+    /* El título no necesita ser absoluto si el contenedor es flex/grid */
+    position: static; /* Cambiamos a static para que fluya con el contenido */
+    transform: none; /* Quitamos la transformación */
+    text-align: center; /* Centramos el texto */
+    width: 100%; /* Ocupa todo el ancho */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    color: #ffffff;
+    font-family: 'Title Hero', sans-serif;
+    font-size: 2.5em; /* Tamaño de fuente relativo */
+    font-weight: 700;
+    font-style: italic;
 }
 
-/* Estilos para los cuadrados de Misión y Visión */
 .mission-vision .card {
-    width: 350px; /* Ancho más angosto */
-    height: 220px; /* Altura reducida */
-    background-color: rgba(169, 169, 169, 0.6); /* Fondo darkgrey al 60% de opacidad */
-    border-radius: 12px; /* Bordes redondeados */
-    padding: 15px; /* Espaciado interno reducido */
-    box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
-    color: #ffffff; /* Color del texto */
-    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
-    text-align: center; /* Centrar el texto */
+    width: 90%; /* Ancho responsivo */
+    max-width: 900px; /* Máximo ancho para cada tarjeta */
+    height: auto; /* Altura automática para que el contenido determine la altura */
+    min-height: 300px; /* Altura mínima para que no se vea muy pequeño */
+    background-color: rgba(169, 169, 169, 0.6);
+    border-radius: 12px;
+    padding: 20px; /* Aumentamos el padding */
+    box-sizing: border-box;
+    color: #ffffff;
+    font-family: 'Title Hero', sans-serif;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alinea el contenido en la parte superior */
+    justify-content: flex-start;
     align-items: center;
-    margin-left: auto; /* Mueve los cuadrados hacia la derecha */
-    margin-right: 10px; /* Margen derecho reducido */
-    overflow: hidden; /* Evita que el texto se desborde */
+    margin: 0; /* Eliminamos los márgenes fijos */
+    overflow: hidden;
 }
 
 .mission-vision .card h2 {
-    margin: 0 0 10px 0; /* Margen inferior para el título */
-    font-size: 20px; /* Tamaño del título */
-    font-weight: 500; /* Grosor de la fuente */
-    white-space: nowrap; /* Evita que el título se divida en varias líneas */
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    font-weight: 500;
+    white-space: normal; /* Permitimos que el título se rompa */
 }
 
 .mission-vision .card p {
-    margin: 0; /* Elimina el margen predeterminado */
-    font-size: 14px; /* Tamaño del texto */
-    line-height: 1.4; /* Interlineado ajustado */
-    display: -webkit-box;
-    -webkit-line-clamp: 5; /* Limita el texto a 5 líneas */
-    -webkit-box-orient: vertical;
-}
-
-/* Ajuste del espacio entre cuadros */
-.mission-vision .card:not(:last-child) {
-    margin-right: -300px; /* Espacio de 20px entre los cuadros */
-}
-
-.mission-vision .card:not(:first-child) {
-    margin-left: 600px; /* Espacio de 20px entre los cuadros */
+    margin: 0;
+    font-size: clamp(0.875rem, 1vw, 0.875rem); /* 14px */
+    line-height: 1.4;
+    display: block; /* Asegura que no haya restricciones de line-clamp */
+    overflow: visible;
 }
 
 /* Estilos para la sección de Ubicación */
 .ubicacion {
-    width: 100%; /* Ocupa el 100% del ancho del contenedor */
-    height: 350px; /* Altura del contenedor */
-    background: linear-gradient(to bottom, #1E7B4F, #02542D); /* Degradado2 */
+    width: 100%;
+    height: auto; /* Mantener auto para flexibilidad */
+    min-height: clamp(300px, 20vw, 400px); /* <-- Añade un min-height para asegurar un tamaño mínimo */
+    background: linear-gradient(to bottom, #1E7B4F, #02542D);
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    color: #ffffff; /* Color del texto */
-    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
-    text-align: center; /* Centrar el texto */
-    padding: 20px; /* Espaciado interno */
-    box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
-    position: relative; /* Para posicionar el título "Ubicación" */
+    color: #ffffff;
+    font-family: 'Title Hero', sans-serif;
+    text-align: center;
+    padding: 3vw 2vw; /* Mantén este padding */
+    padding-top: 5vw; /* <-- Añade o ajusta este padding superior para más espacio */
+    box-sizing: border-box;
+    position: relative;
+    gap: 2vw;
 }
 
-/* Estilos para la sección de Ubicación */
-.ubicacion {
-    width: 100%; /* Ocupa el 100% del ancho del contenedor */
-    height: 350px; /* Altura del contenedor */
-    background: linear-gradient(to bottom, #1E7B4F, #02542D); /* Degradado2 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff; /* Color del texto */
-    font-family: 'Title Hero', sans-serif; /* Aplicar la fuente */
-    text-align: center; /* Centrar el texto */
-    padding: 20px; /* Espaciado interno */
-    box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones */
-    position: relative; /* Para posicionar el título "Ubicación" */
-}
-
-/* Estilos para el título "Ubicación" */
 .ubicacion h2 {
-    position: absolute;
-    left: 50px; /* Posición desde la izquierda (igual que "Nosotros") */
-    top: 50%; /* Centrado verticalmente */
-    transform: translateY(-50%); /* Ajuste fino para centrar */
-    font-size: 42px; /* Tamaño del título */
-    font-weight: 700; /* Negrita */
-    font-style: italic; /* Cursiva */
-    margin: 0; /* Elimina el margen predeterminado */
+    position: static; /* Cambiamos a static */
+    transform: none;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px; /* Espacio debajo del título */
+    font-size: 2.5em;
+    font-weight: 700;
+    font-style: italic;
+    margin: 0;
 }
 
-/* Estilos para el texto de la dirección */
 .ubicacion .direccion {
-    position: absolute;
-    left: 400px; /* Posición desde la izquierda (igual que el título) */
-    top: calc(50% + 10px); /* 35px debajo del título */
-    transform: translateY(-50%); /* Ajuste fino para centrar */
-    text-align: left; /* Alineación del texto a la izquierda */
+    position: static; /* Cambiamos a static */
+    transform: none;
+    text-align: center; /* Centramos el texto */
+    width: 90%; /* Ancho responsivo */
+    max-width: 500px; /* Máximo ancho */
+    margin-bottom: 20px;
 }
 
 .ubicacion .direccion p {
-    font-size: 18px; /* Tamaño del texto */
-    margin: 0; /* Elimina el margen predeterminado */
-    line-height: 1.4; /* Interlineado ajustado */
+    font-size: 1.1em;
+    margin: 5px 0; /* Margen vertical para los párrafos */
+    line-height: 1.4;
 }
 
 .ubicacion .direccion p a {
-    color: #ffffff; /* Color del enlace */
-    text-decoration: none; /* Elimina el subrayado */
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .ubicacion .direccion p a:hover {
-    text-decoration: underline; /* Subrayado al pasar el mouse */
+    text-decoration: underline;
 }
 
 .mapa {
-    position: absolute;
-    right: 350px;
-    border-radius: 10px; /* Ajusta el radio del borde según el logo */
-    border: 3px solid black; /* Borde negro */
-    width: 450px; /* Ajusta el tamaño según necesites */
+    position: static; /* Cambiamos a static */
+    border-radius: 10px;
+    border: 3px solid black;
+    width: 90%; /* Ancho responsivo */
+    max-width: 450px; /* Máximo ancho */
     height: auto;
+    display: block; /* Asegura que ocupe su propia línea */
+    margin: 0 auto; /* Centra el mapa */
 }
 
-/* Estilos para el footer de redes sociales */
-.social-footer {
-    width: 100%;
-    height: 150px;
-    background-color: #184B33; /* Fondo oscuro */
-    display: flex;
-    justify-content: center; /* Centra los iconos horizontalmente */
-    align-items: center; /* Centra los iconos verticalmente */
-    position: relative;
-    bottom: 0;
-}
-
-/* Estilos para los iconos de redes sociales */
-.social-icon {
-    margin: 0 10px; /* Espacio entre los iconos */
-}
-
-.social-icon img {
-    width: 30px; /* Tamaño de los iconos */
-    height: 30px; /* Asegura que los iconos sean cuadrados */
-    transition: transform 0.3s ease; /* Efecto de transición para el hover */
-}
-
-.social-icon img:hover {
-    transform: scale(1.1); /* Efecto de agrandar el icono al pasar el mouse */
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.btn-auth, .btn-usuario, .btn-logout {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.btn-auth:hover, .btn-usuario:hover, .btn-logout:hover {
-    background-color: #555;
-}
-
-.btn-usuario {
-    font-weight: bold;
-}
-
+/* Estilos para la nueva sección del carrusel */
 .carousel-section {
     width: 100%;
-    height: 450px; /* Ajusta esta altura según el tamaño deseado de tu carrusel */
-    background: linear-gradient(to top, #1E7B4F, #02542D); /* Degradado similar a la sección de Ubicación */
+    height: auto; /* Altura automática para el contenido */
+    max-height: 400px; /* Máximo alto para el carrusel */
+    padding: 50px 20px; /* Padding para espaciar */
+    background: linear-gradient(to top, #1E7B4F, #02542D);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #ffffff;
     font-family: 'Title Hero', sans-serif;
-    padding: 20px 0;
     box-sizing: border-box;
-    position: relative; /* Para posicionar el título */
+    position: relative;
+    gap: 30px; /* Espacio entre el título y el carrusel */
 }
 
-.carousel-section .carousel-title { /* Para el título de la sección del carrusel */
-    position: absolute;
-    left: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 42px;
+.carousel-section .carousel-title {
+    position: static; /* Cambiamos a static */
+    transform: none;
+    text-align: center;
+    width: 100%;
+    font-size: 2.5em;
     font-weight: 700;
     font-style: italic;
-    margin: 0;
-    z-index: 2; /* Para asegurar que el título esté sobre el carrusel */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    z-index: 2;
 }
 
-/* Estilos del carrusel en sí (basado en tu carrousel1.css) */
+/* Estilos del carrusel en sí (adaptados para responsividad) */
 .carrousel {
-    width: 80%; /* Ancho del contenedor del carrusel */
+    width: 90%; /* Ancho responsivo */
     max-width: 500px; /* Máximo ancho para el carrusel */
-    height: 600px; /* Altura de las imágenes del carrusel */
+    height: 400px; /* Altura fija para el carrusel en móviles */
     position: relative;
-    overflow: hidden; /* Oculta las imágenes que no están en vista */
+    overflow: hidden;
     border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
-    margin-left: auto; /* Mueve el carrusel hacia la derecha, similar a las tarjetas */
-    margin-right: 300px; /* Ajusta el margen derecho */
-    display: flex; /* Asegura que las imágenes se alineen horizontalmente */
-    align-items: center; /* Centra las imágenes verticalmente si tienen diferentes alturas */
-    justify-content: flex-start; /* Alinea las imágenes al inicio para el desplazamiento */
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0 auto; /* Centramos el carrusel */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .carrousel img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
-    position: absolute; /* Posiciona las imágenes absolutamente dentro del carrusel */
+    object-fit: cover;
+    position: absolute;
     top: 0;
     left: 0;
-    opacity: 0; /* Oculta todas las imágenes por defecto */
-    transition: opacity 0.5s ease-in-out; /* Transición suave para la visibilidad */
-    border-radius: 12px; /* Bordes redondeados para las imágenes */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 12px;
 }
 
 .carrousel img.active {
-    opacity: 1; /* Muestra la imagen activa */
+    opacity: 1;
 }
 
 .boton {
@@ -416,11 +361,11 @@ header .header-text p {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px; /* Reducimos el padding de los botones */
     cursor: pointer;
-    font-size: 24px;
+    font-size: 1.5em; /* Tamaño de fuente relativo */
     border-radius: 5px;
-    z-index: 3; /* Asegura que los botones estén por encima de las imágenes */
+    z-index: 3;
     transition: background-color 0.3s ease;
 }
 
@@ -436,3 +381,331 @@ header .header-text p {
     right: 10px;
 }
 
+/* Estilos para el footer de redes sociales */
+.social-footer {
+    width: 100%;
+    height: 100px; /* Ajustamos la altura */
+    background-color: #184B33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+    flex-wrap: wrap; /* Permite que los iconos se envuelvan */
+    gap: 20px; /* Espacio entre los iconos */
+}
+
+.social-icon {
+    margin: 0; /* Eliminamos el margen fijo */
+}
+
+.social-icon img {
+    width: 40px; /* Aumentamos un poco el tamaño de los iconos para mejor visibilidad */
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+    transform: scale(1.1);
+}
+
+/* Media Queries para Tablets (ej. 768px a 1024px) */
+@media (min-width: 768px) {
+    .navbar {
+        top: 50px;
+        right: 20px;
+        left: unset; /* Quita el left: 0 */
+        width: auto; /* Ancho automático */
+        padding: 0; /* Quitamos el padding global */
+        background-color: unset; /* Quita el fondo de la navbar */
+    }
+
+    .navbar ul {
+        gap: 30px; /* Más espacio */
+    }
+
+    .navbar ul li a {
+        font-size: 18px; /* Volvemos a px para tamaños estándar en desktop/tablet */
+    }
+
+    .navbar .auth-buttons a {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    header .logo {
+        width: 87px;
+        height: 87px;
+        top: 40px;
+        left: 20px;
+    }
+
+    header .carrito {
+        width: 87px;
+        height: 87px;
+        top: 40px;
+        left: 140px;
+    }
+
+    header .header-text h1 {
+        font-size: 73px;
+    }
+
+    header .header-text p {
+        font-size: 32px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .mission-vision {
+        flex-direction: row; /* Vuelve a fila en tablets */
+        justify-content: center; /* Centra las tarjetas */
+        gap: 20px; /* Espacio entre ellas */
+        padding: 50px; /* Más padding para la sección */
+    }
+
+    .mission-vision .nosotros-title {
+        position: absolute; /* Vuelve a absoluto para el diseño original */
+        left: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto; /* Ancho automático */
+        text-align: left; /* Alineación a la izquierda */
+        font-size: 42px;
+        margin-bottom: 0;
+    }
+
+    .mission-vision .card {
+        width: 350px; /* Ancho fijo */
+        height: 220px; /* Altura fija */
+        min-height: unset; /* Quitamos la altura mínima */
+        padding: 15px;
+        margin-left: auto; /* Para empujar la segunda tarjeta */
+        margin-right: 10px;
+    }
+    /* Ajuste de espacio entre las tarjetas en tablets */
+    .mission-vision .card:nth-of-type(2) { /* Selecciona la segunda tarjeta */
+        margin-left: -300px; /* Desplaza a la izquierda para acercarla al título */
+    }
+    .mission-vision .card:not(:first-child) { /* Esto sobrescribe el de arriba, es mejor ser específico */
+        margin-left: 600px;
+    }
+
+
+    .ubicacion {
+        flex-direction: row; /* Vuelve a fila en tablets */
+        justify-content: center;
+        align-items: center; /* Centra los ítems */
+        padding: 50px;
+    }
+
+    .ubicacion h2 {
+        position: absolute;
+        left: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 42px;
+        width: auto;
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    .ubicacion .direccion {
+        position: absolute;
+        left: 400px;
+        top: calc(50% + 10px);
+        transform: translateY(-50%);
+        text-align: left;
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    .mapa {
+        position: absolute;
+        right: 350px;
+        width: 450px;
+        margin: 0;
+    }
+
+    .carousel-section {
+        height: 700px; /* Restauramos la altura que te gustó para desktop */
+        padding: 20px 0;
+    }
+
+    .carousel-section .carousel-title {
+        position: absolute;
+        left: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 42px;
+        width: auto;
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    .carrousel {
+        width: 80%; /* Ancho del contenedor del carrusel */
+        max-width: 500px; /* Mantén el max-width que te gustó para desktop */
+        height: 600px; /* Mantén la altura que te gustó para desktop */
+        margin-left: auto; /* Mueve el carrusel hacia la derecha */
+        margin-right: 300px; /* Ajusta el margen derecho */
+    }
+
+    .boton {
+        padding: 10px 15px;
+        font-size: 24px;
+    }
+
+    .social-footer {
+        height: 80px; /* Restauramos la altura original */
+        gap: 10px; /* Restauramos el espacio original */
+    }
+
+    .social-icon img {
+        width: 30px; /* Restauramos el tamaño original */
+        height: 30px;
+    }
+}
+
+/* Media Queries para móviles pequeños (ej. hasta 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column; /* Apila los elementos de la navbar */
+        align-items: flex-start; /* Alinea a la izquierda */
+        top: 0; /* La navbar empieza desde arriba */
+        padding: 15px;
+        position: static; /* Hacemos que la navbar fluya con el contenido */
+        background-color: #1B1D1C; /* Fondo sólido para que no transparente sobre el video */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Apila los enlaces */
+        width: 100%; /* Ocupa todo el ancho */
+        gap: 10px;
+        margin-bottom: 10px; /* Espacio debajo de los enlaces */
+    }
+
+    .navbar ul li a {
+        font-size: 1em;
+        padding: 5px 0;
+    }
+
+    .navbar .auth-buttons {
+        flex-direction: column; /* Apila los botones de auth */
+        width: 100%;
+        gap: 5px;
+    }
+
+    .navbar .auth-buttons a {
+        width: 100%; /* Botones de ancho completo */
+        text-align: center; /* Centra el texto en los botones */
+        padding: 8px 0;
+    }
+
+    header {
+        height: 250px; /* Reducimos la altura del header para móviles */
+    }
+
+    header .logo {
+        width: 60px;
+        height: 60px;
+        top: 15px;
+        left: 15px;
+    }
+
+    header .carrito {
+        width: 60px;
+        height: 60px;
+        top: 15px;
+        left: 85px; /* Ajustamos la posición */
+    }
+
+    header .header-text h1 {
+        font-size: 3em; /* Más pequeño para móviles */
+    }
+
+    header .header-text p {
+        font-size: 1.2em; /* Más pequeño */
+        margin-top: 5px;
+    }
+
+    .mission-vision {
+        padding: 30px 15px; /* Reducimos el padding */
+        gap: 20px;
+    }
+
+    .mission-vision .nosotros-title {
+        font-size: 2em; /* Más pequeño */
+        margin-bottom: 15px;
+    }
+
+    .mission-vision .card {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: 300px; /* Máximo ancho */
+        min-height: 180px; /* Altura mínima */
+        padding: 15px;
+    }
+
+    .mission-vision .card h2 {
+        font-size: 1.3em;
+    }
+
+    .mission-vision .card p {
+        font-size: 0.9em;
+    }
+
+    .ubicacion {
+        padding: 30px 15px;
+        gap: 15px;
+    }
+
+    .ubicacion h2 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    .ubicacion .direccion {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .ubicacion .direccion p {
+        font-size: 1em;
+    }
+
+    .mapa {
+        width: 100%;
+        max-width: 300px; /* Máximo ancho para el mapa */
+    }
+
+    .carousel-section {
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    .carousel-section .carousel-title {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    .carrousel {
+        width: 100%;
+        max-width: 300px; /* Máximo ancho para el carrusel en móviles */
+        height: 300px; /* Altura del carrusel en móviles */
+    }
+
+    .boton {
+        padding: 5px 8px;
+        font-size: 1.2em;
+    }
+
+    .social-footer {
+        height: 70px;
+        gap: 15px;
+    }
+
+    .social-icon img {
+        width: 35px;
+        height: 35px;
+    }
+}

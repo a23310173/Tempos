@@ -1,0 +1,308 @@
+/* Estilos Generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f7; /* Fondo suave */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio verticalmente */
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Contenedor Principal del Pago */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px; /* Ancho máximo ajustado para el contenido más simple */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+/* Encabezado del Pago */
+.header-pago {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.logo-pago {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    object-fit: contain;
+}
+
+.header-pago h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Resumen del Pedido */
+.payment-summary {
+    background-color: #fcfcfc;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.payment-summary h2 {
+    font-size: 1.8em;
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.payment-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.payment-summary ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #e9e9e9;
+    font-size: 1em;
+    color: #666;
+}
+
+.payment-summary ul li:last-child {
+    border-bottom: none;
+}
+
+.payment-summary .total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2c3e50;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.btn-back {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.btn-back:hover {
+    background-color: #5a6268;
+}
+
+/* Contenedor del Formulario de Pago (Simplificado para PayPal) */
+.payment-form-container h2 {
+    font-size: 1.8em;
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.paypal-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px dashed #a0a0a0;
+    border-radius: 10px;
+    background-color: #fcfcfc;
+}
+
+.paypal-option p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #555;
+    text-align: center;
+}
+
+.btn-paypal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background-color: #0070ba; /* Color azul de PayPal */
+    color: white;
+    border: none;
+    border-radius: 25px; /* Más redondeado para parecerse a PayPal */
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-paypal img {
+    height: 25px; /* Tamaño del logo de PayPal dentro del botón */
+    width: auto;
+}
+
+.btn-paypal:hover {
+    background-color: #005ea6; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-3px);
+}
+
+.btn-paypal:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* Botón Cancelar */
+.btn-cancel {
+    display: block; /* Para que ocupe su propia línea y se pueda centrar */
+    width: fit-content; /* Se ajusta al contenido */
+    margin: 20px auto 0; /* Centra el botón */
+    padding: 12px 25px;
+    background-color: #dc3545; /* Rojo vibrante */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel:hover {
+    background-color: #c82333;
+    transform: translateY(-3px);
+}
+
+/* Mensajes de Estado del Pago */
+.payment-message {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.05em;
+    border: 1px solid transparent;
+}
+
+.payment-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.payment-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.payment-message.info {
+    background-color: #cfe2ff;
+    color: #052c65;
+    border-color: #b6d4fe;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+        gap: 25px;
+        border-radius: 0;
+    }
+
+    .header-pago {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .header-pago h1 {
+        font-size: 2em;
+    }
+
+    .logo-pago {
+        width: 60px;
+        height: 60px;
+    }
+
+    .payment-summary h2,
+    .payment-form-container h2 {
+        font-size: 1.6em;
+    }
+
+    .btn-paypal {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+        box-shadow: none;
+    }
+
+    .header-pago h1 {
+        font-size: 1.8em;
+    }
+
+    .logo-pago {
+        width: 50px;
+        height: 50px;
+    }
+
+    .payment-summary h2,
+    .payment-form-container h2 {
+        font-size: 1.4em;
+    }
+
+    .payment-summary ul li,
+    .payment-summary .total,
+    .paypal-option p,
+    .payment-message {
+        font-size: 0.9em;
+    }
+
+    .btn-paypal {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .btn-paypal img {
+        height: 20px;
+    }
+    .btn-cancel {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}

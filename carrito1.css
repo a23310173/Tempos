@@ -111,7 +111,7 @@ a[href="productos_usuario.php"]:hover {
 }
 
 /* Estilo para el enlace "Comprar" */
-a[href="compra.php"] {
+a[href="pago.php"] {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
