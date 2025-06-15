@@ -14,7 +14,7 @@ if (!isset($_SESSION['guest_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEMPO</title>
-    <link rel="stylesheet" href="homes.css">
+    <link rel="stylesheet" href="homess.css">
     <link href="https://fonts.googleapis.com/css2?family=Title+Hero&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -75,11 +75,24 @@ if (!isset($_SESSION['guest_id'])) {
         <img src="media/mapa.png" alt="Mapa" class="mapa">
     </div>
 
+    <div class="carousel-section">
+        <h2 class="carousel-title">Nuestros Productos Destacados</h2>
+        <div class="carrousel" id="carrousel">
+            <img src="media/armani.jpg" alt="Reloj 1" class="active">
+            <img src="media/bulova.jpg" alt="Reloj 2">
+            <img src="media/rolex.jpg" alt="Reloj 3">
+            <img src="media/omega.jpg" alt="Reloj 4">
+            <button class="boton prev" id="prev">&#10094;</button>
+            <button class="boton next" id="next">&#10095;</button>
+        </div>
+
     <div class="social-footer">
         <a href="#" class="social-icon"><img src="media/facebook.png" alt="Facebook"></a>
         <a href="#" class="social-icon"><img src="media/x.png" alt="Twitter"></a>
         <a href="#" class="social-icon"><img src="media/instagram.png" alt="Instagram"></a>
     </div>
 </div>
+</div>
+<script src="carrousel.js"></script>
 </body>
 </html>

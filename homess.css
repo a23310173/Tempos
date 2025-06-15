@@ -304,7 +304,7 @@ header .header-text p {
 /* Estilos para el footer de redes sociales */
 .social-footer {
     width: 100%;
-    height: 80px;
+    height: 150px;
     background-color: #184B33; /* Fondo oscuro */
     display: flex;
     justify-content: center; /* Centra los iconos horizontalmente */
@@ -349,3 +349,90 @@ header .header-text p {
 .btn-usuario {
     font-weight: bold;
 }
+
+.carousel-section {
+    width: 100%;
+    height: 450px; /* Ajusta esta altura según el tamaño deseado de tu carrusel */
+    background: linear-gradient(to top, #1E7B4F, #02542D); /* Degradado similar a la sección de Ubicación */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-family: 'Title Hero', sans-serif;
+    padding: 20px 0;
+    box-sizing: border-box;
+    position: relative; /* Para posicionar el título */
+}
+
+.carousel-section .carousel-title { /* Para el título de la sección del carrusel */
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 42px;
+    font-weight: 700;
+    font-style: italic;
+    margin: 0;
+    z-index: 2; /* Para asegurar que el título esté sobre el carrusel */
+}
+
+/* Estilos del carrusel en sí (basado en tu carrousel1.css) */
+.carrousel {
+    width: 80%; /* Ancho del contenedor del carrusel */
+    max-width: 500px; /* Máximo ancho para el carrusel */
+    height: 600px; /* Altura de las imágenes del carrusel */
+    position: relative;
+    overflow: hidden; /* Oculta las imágenes que no están en vista */
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
+    margin-left: auto; /* Mueve el carrusel hacia la derecha, similar a las tarjetas */
+    margin-right: 300px; /* Ajusta el margen derecho */
+    display: flex; /* Asegura que las imágenes se alineen horizontalmente */
+    align-items: center; /* Centra las imágenes verticalmente si tienen diferentes alturas */
+    justify-content: flex-start; /* Alinea las imágenes al inicio para el desplazamiento */
+}
+
+.carrousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    position: absolute; /* Posiciona las imágenes absolutamente dentro del carrusel */
+    top: 0;
+    left: 0;
+    opacity: 0; /* Oculta todas las imágenes por defecto */
+    transition: opacity 0.5s ease-in-out; /* Transición suave para la visibilidad */
+    border-radius: 12px; /* Bordes redondeados para las imágenes */
+}
+
+.carrousel img.active {
+    opacity: 1; /* Muestra la imagen activa */
+}
+
+.boton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 5px;
+    z-index: 3; /* Asegura que los botones estén por encima de las imágenes */
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
